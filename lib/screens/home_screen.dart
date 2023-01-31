@@ -17,7 +17,9 @@ class HomeScreen extends StatelessWidget {
           return ListTile(
             leading: const Icon(Icons.access_time_outlined),
             title: const Text('nombre de ruta'),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, 'card');
+            },
           );
         },
         separatorBuilder: (BuildContext _, int __) {
