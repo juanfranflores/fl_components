@@ -1,7 +1,13 @@
 import "package:flutter/material.dart";
 
 class CustomCardType2 extends StatelessWidget {
-  const CustomCardType2({super.key});
+  final String imageUrl;
+  final String? description;
+  const CustomCardType2({
+    super.key,
+    required this.imageUrl,
+    this.description,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -11,23 +17,23 @@ class CustomCardType2 extends StatelessWidget {
       elevation: 10,
       child: Column(
         children: [
-          const FadeInImage(
-            image: NetworkImage(
-                'https://photographylife.com/wp-content/uploads/2017/01/What-is-landscape-photography.jpg'),
-            placeholder: AssetImage('assets/jar-loading.gif'),
+          FadeInImage(
+            image: NetworkImage(imageUrl),
+            placeholder: const AssetImage('assets/jar-loading.gif'),
             height: 350,
             width: double.infinity,
             fit: BoxFit.fitHeight,
           ),
-          Container(
-            alignment: AlignmentDirectional.centerEnd,
-            padding: const EdgeInsets.only(
-              right: 20,
-              top: 20,
-              bottom: 10,
-            ),
-            child: const Text("Image description"),
-          )
+          if (description != null)
+            Container(
+              alignment: AlignmentDirectional.centerEnd,
+              padding: const EdgeInsets.only(
+                right: 20,
+                top: 20,
+                bottom: 10,
+              ),
+              child: Text(description!),
+            )
         ],
       ),
     );
