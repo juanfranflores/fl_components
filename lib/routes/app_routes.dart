@@ -37,6 +37,11 @@ class AppRoutes {
       screen: const CardScreen(),
       icon: Icons.book,
     ),
+    MenuOption(
+        route: 'avatar',
+        name: 'Avatar',
+        screen: const AvatarScreen(),
+        icon: Icons.person)
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
@@ -46,13 +51,6 @@ class AppRoutes {
     }
     return appRoutes;
   }
-  // static Map<String, Widget Function(BuildContext)> routes = {
-  //   'home': (BuildContext context) => const HomeScreen(),
-  //   'listview1': (BuildContext context) => const Listview1Screen(),
-  //   'listview2': (BuildContext context) => const Listview2Screen(),
-  //   'card': (BuildContext context) => const CardScreen(),
-  //   'alert': (BuildContext context) => const AlertScreen()
-  // };
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     debugPrint('$settings');

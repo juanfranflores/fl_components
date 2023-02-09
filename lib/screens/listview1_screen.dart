@@ -15,17 +15,19 @@ class Listview1Screen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Listview Tipo 1'),
       ),
-      body: ListView(children: [
-        ...libros
-            .map(
-              (e) => ListTile(
-                leading: const Icon(Icons.book),
-                title: Text(e),
-                trailing: const Icon(Icons.keyboard_arrow_right_rounded),
-              ),
-            )
-            .toList()
-      ]),
+      body: ListView(
+        children: [
+          ...libros
+              .map(
+                (e) => ListTile(
+                  leading: const Icon(Icons.book),
+                  title: Text(e),
+                  trailing: const Icon(Icons.keyboard_arrow_right_rounded),
+                ),
+              )
+              .toList()
+        ],
+      ),
     );
   }
 }
