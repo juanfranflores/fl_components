@@ -6,36 +6,26 @@ class AppRoutes {
   static const initialRoute = 'home';
 
   static final menuOptions = <MenuOption>[
-    // MenuOption(
-    //   route: 'home',
-    //   name: 'Home Screen',
-    //   screen: const HomeScreen(),
-    //   icon: Icons.home_rounded,
-    // ),
     MenuOption(
-      route: 'listview1',
-      name: 'Listview tipo 1',
-      screen: const Listview1Screen(),
-      icon: Icons.list,
-    ),
+        route: 'listview1',
+        name: 'Listview tipo 1',
+        screen: const Listview1Screen(),
+        icon: Icons.list),
     MenuOption(
-      route: 'listview2',
-      name: 'Listview tipo 2',
-      screen: const Listview2Screen(),
-      icon: Icons.list_alt,
-    ),
+        route: 'listview2',
+        name: 'Listview tipo 2',
+        screen: const Listview2Screen(),
+        icon: Icons.list_alt),
     MenuOption(
-      route: 'alert',
-      name: 'Alert',
-      screen: const AlertScreen(),
-      icon: Icons.add_alert,
-    ),
+        route: 'alert',
+        name: 'Alert',
+        screen: const AlertScreen(),
+        icon: Icons.add_alert),
     MenuOption(
-      route: 'card',
-      name: 'Card',
-      screen: const CardScreen(),
-      icon: Icons.book,
-    ),
+        route: 'card',
+        name: 'Card',
+        screen: const CardScreen(),
+        icon: Icons.book),
     MenuOption(
         route: 'avatar',
         name: 'Avatar',
@@ -46,6 +36,11 @@ class AppRoutes {
         name: 'Animated Container',
         screen: const AnimatedScreen(),
         icon: Icons.gif),
+    MenuOption(
+        route: 'inputs',
+        name: 'Inputs Screen',
+        screen: const InputsScreen(),
+        icon: Icons.input_outlined),
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
