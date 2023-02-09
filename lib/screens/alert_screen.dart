@@ -3,6 +3,39 @@ import 'package:flutter/material.dart';
 class AlertScreen extends StatelessWidget {
   const AlertScreen({Key? key}) : super(key: key);
 
+  void dispalyDialog(BuildContext context) {
+    showDialog(
+      barrierDismissible: true,
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          elevation: 5,
+          title: const Text("ALERTAAAAA"),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: const [
+              Text('contenido de la alerta :)'),
+              SizedBox(
+                height: 10,
+              ),
+              FlutterLogo(
+                size: 100,
+              )
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('Cancelar'),
+            )
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,9 +48,7 @@ class AlertScreen extends StatelessWidget {
               style: TextStyle(fontSize: 16),
             ),
           ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: () => dispalyDialog(context),
         ),
       ),
       floatingActionButton: FloatingActionButton(

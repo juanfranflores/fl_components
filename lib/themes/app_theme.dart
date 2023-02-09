@@ -18,11 +18,15 @@ class AppTheme {
       elevation: 5,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-      backgroundColor: primary,
-      shape: const StadiumBorder(),
-      elevation: 0,
-    )),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: primary,
+        shape: const StadiumBorder(),
+        elevation: 0,
+      ),
+    ),
+    dialogTheme: DialogTheme(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    ),
   );
   static final ThemeData darkTheme = ThemeData.dark().copyWith(
     primaryColor: Colors.indigo,
