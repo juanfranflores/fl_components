@@ -30,25 +30,13 @@ class AppTheme {
     inputDecorationTheme: const InputDecorationTheme(
       border: OutlineInputBorder(
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(10),
-          topRight: Radius.circular(10),
+          topLeft: Radius.circular(5),
+          topRight: Radius.circular(20),
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(5),
         ),
       ),
       floatingLabelStyle: TextStyle(color: primary),
-      enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: primary),
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(10),
-          topRight: Radius.circular(10),
-        ),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: primary),
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(10),
-          topRight: Radius.circular(10),
-        ),
-      ),
     ),
   );
 
