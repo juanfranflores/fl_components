@@ -1,3 +1,4 @@
+import 'package:fl_components/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class InputsScreen extends StatelessWidget {
@@ -16,22 +17,11 @@ class InputsScreen extends StatelessWidget {
             vertical: 10,
           ),
           child: Column(
-            children: [
-              TextFormField(
-                autofocus: true,
-                initialValue: 'Juan Flores :)',
-                textCapitalization: TextCapitalization.words,
-                onChanged: (value) {
-                  debugPrint(value);
-                },
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (value) {
-                  if (value == null) return 'Null!';
-                  return value.isEmpty
-                      ? 'Este campo no puede estar vacío'
-                      : null;
-                },
-              ),
+            children: const [
+              CustomInputField(
+                  helperText: 'helper text',
+                  hintText: 'hint text',
+                  labelText: 'label text'),
             ],
           ),
         ),
