@@ -47,6 +47,5 @@ class AppTheme {
       centerTitle: true,
       elevation: 0,
     ),
-    // scaffoldBackgroundColor:,
   );
 }
