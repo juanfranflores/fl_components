@@ -8,6 +8,9 @@ class CustomInputField extends StatelessWidget {
   final TextInputType? keyboardType;
   final bool? hidePassword;
 
+  final String formProperty;
+  final Map<String, String> formValues;
+
   const CustomInputField({
     super.key,
     this.hintText,
@@ -16,6 +19,8 @@ class CustomInputField extends StatelessWidget {
     this.iconData,
     this.keyboardType,
     this.hidePassword,
+    required this.formProperty,
+    required this.formValues,
   });
 
   @override
@@ -26,9 +31,7 @@ class CustomInputField extends StatelessWidget {
       obscureText: hidePassword ?? false,
       initialValue: '',
       textCapitalization: TextCapitalization.words,
-      onChanged: (value) {
-        debugPrint(value);
-      },
+      onChanged: (value) => formValues[formProperty] = value,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: (value) {
         if (value == null) return 'Null!';

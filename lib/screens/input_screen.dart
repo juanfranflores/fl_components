@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:fl_components/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -8,13 +10,20 @@ class InputsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final GlobalKey<FormState> myFormKey = GlobalKey<FormState>();
 
+    const String firstNameKey = 'fist_name';
+    const String lastNameKey = 'last_name';
+    const String emailKey = 'email';
+    const String birthdayKey = 'birthday';
+    const String passwordKey = 'password';
+    const String roleKey = 'role';
+
     final Map<String, String> formValues = {
-      'first_name': 'Juan',
-      'last_name': 'Flores',
-      'email': 'juan27fp@gmail.com',
-      'birthday': DateTime(1997, 05, 27).toString(),
-      'password': 'password',
-      'role': 'admin',
+      firstNameKey: 'Juan',
+      lastNameKey: 'Flores',
+      emailKey: 'juan27fp@gmail.com',
+      birthdayKey: DateTime(1997, 05, 27).toString(),
+      passwordKey: 'password',
+      roleKey: 'user',
     };
 
     return Scaffold(
@@ -31,53 +40,80 @@ class InputsScreen extends StatelessWidget {
             key: myFormKey,
             child: Column(
               children: [
-                const CustomInputField(
-                    helperText: '',
-                    hintText: 'Nombre',
-                    keyboardType: TextInputType.name,
-                    iconData: Icons.person),
+                CustomInputField(
+                  helperText: '',
+                  hintText: 'Nombre',
+                  keyboardType: TextInputType.name,
+                  iconData: Icons.person,
+                  formProperty: firstNameKey,
+                  formValues: formValues,
+                ),
                 const SizedBox(height: 30),
-                const CustomInputField(
-                    helperText: '',
-                    hintText: 'Apellido',
-                    keyboardType: TextInputType.name,
-                    iconData: Icons.person),
+                CustomInputField(
+                  helperText: '',
+                  hintText: 'Apellido',
+                  keyboardType: TextInputType.name,
+                  iconData: Icons.person,
+                  formProperty: lastNameKey,
+                  formValues: formValues,
+                ),
                 const SizedBox(height: 20),
-                const CustomInputField(
-                    helperText: '',
-                    hintText: 'Correo',
-                    keyboardType: TextInputType.emailAddress,
-                    iconData: Icons.email_outlined),
+                CustomInputField(
+                  helperText: '',
+                  hintText: 'Correo',
+                  keyboardType: TextInputType.emailAddress,
+                  iconData: Icons.email_outlined,
+                  formProperty: emailKey,
+                  formValues: formValues,
+                ),
                 const SizedBox(height: 20),
-                const CustomInputField(
-                    helperText: '',
-                    hintText: 'Fecha de nacimiento',
-                    keyboardType: TextInputType.datetime,
-                    iconData: Icons.cake_outlined),
+                CustomInputField(
+                  helperText: '',
+                  hintText: 'Fecha de nacimiento',
+                  keyboardType: TextInputType.datetime,
+                  iconData: Icons.cake_outlined,
+                  formProperty: emailKey,
+                  formValues: formValues,
+                ),
                 const SizedBox(height: 20),
-                const CustomInputField(
-                    helperText: '',
-                    hintText: 'Contraseña',
-                    hidePassword: true,
-                    keyboardType: TextInputType.visiblePassword,
-                    iconData: Icons.lock_outline),
+                CustomInputField(
+                  helperText: '',
+                  hintText: 'Contraseña',
+                  hidePassword: true,
+                  keyboardType: TextInputType.visiblePassword,
+                  iconData: Icons.lock_outline,
+                  formProperty: passwordKey,
+                  formValues: formValues,
+                ),
                 const SizedBox(height: 20),
+                DropdownButtonFormField(
+                  items: const [
+                    DropdownMenuItem(value: 'admin', child: Text('Admin')),
+                    DropdownMenuItem(
+                        value: 'superuser', child: Text('Superuser')),
+                    DropdownMenuItem(
+                        value: 'developer', child: Text('Developer')),
+                    DropdownMenuItem(value: 'user', child: Text('User')),
+                  ],
+                  onChanged: (value) {
+                    debugPrint(value);
+                    formValues[roleKey] = value ?? 'admin';
+                  },
+                ),
                 ElevatedButton(
-                    child: const SizedBox(
-                      width: double.infinity,
-                      child: Center(child: Text('Guardar')),
-                    ),
-                    onPressed: () {
-                      FocusScope.of(context).requestFocus(FocusNode());
-                      if (!myFormKey.currentState!.validate()) {
-                        debugPrint('formulario no válido');
-                        return;
-                      }
-
-                      // formValues.forEach((key, value) {
-                      //   debugPrint('$key : $value');
-                      // });
-                    }),
+                  child: const SizedBox(
+                    width: double.infinity,
+                    child: Center(child: Text('Guardar')),
+                  ),
+                  onPressed: () {
+                    FocusScope.of(context).requestFocus(FocusNode());
+                    if (!myFormKey.currentState!.validate()) {
+                      debugPrint('formulario no válido');
+                      return;
+                    }
+                    debugPrint(jsonEncode(formValues));
+                  },
+                ),
               ],
             ),
           ),
