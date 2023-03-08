@@ -10,32 +10,32 @@ class AppRoutes {
         route: 'listview1',
         name: 'Listview tipo 1',
         screen: const Listview1Screen(),
-        icon: Icons.list),
+        icon: Icons.list_outlined),
     MenuOption(
         route: 'listview2',
         name: 'Listview tipo 2',
         screen: const Listview2Screen(),
-        icon: Icons.list_alt),
+        icon: Icons.list_alt_outlined),
     MenuOption(
         route: 'alert',
         name: 'Alert',
         screen: const AlertScreen(),
-        icon: Icons.add_alert),
+        icon: Icons.notifications_active_outlined),
     MenuOption(
         route: 'card',
         name: 'Card',
         screen: const CardScreen(),
-        icon: Icons.book),
+        icon: Icons.recent_actors_outlined),
     MenuOption(
         route: 'avatar',
         name: 'Avatar',
         screen: const AvatarScreen(),
-        icon: Icons.person),
+        icon: Icons.person_outline),
     MenuOption(
         route: 'animated',
         name: 'Animated Container',
         screen: const AnimatedScreen(),
-        icon: Icons.gif),
+        icon: Icons.gif_outlined),
     MenuOption(
         route: 'inputs',
         name: 'Inputs Screen',
@@ -46,6 +46,11 @@ class AppRoutes {
         name: 'Slider Screen',
         screen: const SliderScreen(),
         icon: Icons.slideshow_outlined),
+    MenuOption(
+        route: 'listviewbuilder',
+        name: 'Infinit Scroll & Pull to refresh',
+        screen: const ListViewBuilderScreen(),
+        icon: Icons.replay_circle_filled_outlined),
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
